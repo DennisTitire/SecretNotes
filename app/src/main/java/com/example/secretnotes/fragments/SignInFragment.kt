@@ -64,8 +64,6 @@ class SignInFragment : Fragment() {
                     }
                 }
             }
-        } else {
-            Toast.makeText(context, "PLM", Toast.LENGTH_SHORT).show()
         }
 
     }

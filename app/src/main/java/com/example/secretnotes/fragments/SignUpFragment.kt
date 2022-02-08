@@ -58,8 +58,6 @@ class SignUpFragment : Fragment() {
             Toast.makeText(context, "Saved successfully with ${user.userName}!", Toast.LENGTH_SHORT).show()
             binding.progressBar.visibility = View.INVISIBLE
             findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
-        } else {
-            Toast.makeText(context, "PLM", Toast.LENGTH_SHORT).show()
         }
 
     }
