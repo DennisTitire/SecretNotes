@@ -42,7 +42,7 @@
     </fragment>
     <fragment
         android:id="@+id/listNotesFragment"
-        android:name="com.example.secretnotes.fragments.ListNotesFragment"
+        android:name="com.example.secretnotes.fragments.list.ListNotesFragment"
         android:label="Notes"
         tools:layout="@layout/fragment_list_notes">
         <action
@@ -55,7 +55,7 @@
     </fragment>
     <fragment
         android:id="@+id/addNoteFragment"
-        android:name="com.example.secretnotes.fragments.AddNoteFragment"
+        android:name="com.example.secretnotes.fragments.add.AddNoteFragment"
         android:label="Add note"
         tools:layout="@layout/fragment_add_note">
         <action

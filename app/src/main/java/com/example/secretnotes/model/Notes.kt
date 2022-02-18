@@ -1,6 +1,12 @@
 package com.example.secretnotes.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
 data class Notes(
-    val title: String?,
-    val description: String?
+    @PrimaryKey(autoGenerate = false)
+    val noteTitle: String,
+    val noteDescription: String,
+    val userId: Int?
 )

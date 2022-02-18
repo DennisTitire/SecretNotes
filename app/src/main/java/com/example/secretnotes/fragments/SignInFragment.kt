@@ -2,6 +2,7 @@ package com.example.secretnotes.fragments
 
 import android.app.Application
 import android.os.Bundle
+import android.service.autofill.UserData
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.secretnotes.R
 import com.example.secretnotes.database.UserDatabase
 import com.example.secretnotes.databinding.FragmentSignInBinding
+import com.example.secretnotes.model.User
 import com.example.secretnotes.repository.UserRepository
 import com.example.secretnotes.viewmodel.UserViewModel
 import com.example.secretnotes.viewmodel.UserViewModelProvider
@@ -24,6 +26,10 @@ class SignInFragment : Fragment() {
 
     private lateinit var binding: FragmentSignInBinding
     private lateinit var userViewModel: UserViewModel
+
+    companion object {
+        var getUserId: Int? = 0
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -44,6 +50,7 @@ class SignInFragment : Fragment() {
         }
 
 
+
         return viewBinding
     }
 
@@ -54,6 +61,7 @@ class SignInFragment : Fragment() {
             lifecycleScope.launch(Dispatchers.IO) {
                 val user = userViewModel.getUser(userName, userPassword)
                 if (user != null) {
+                    getUserId = user.userId
                     lifecycleScope.launch(Dispatchers.Main) {
                         findNavController().navigate(R.id.action_signInFragment_to_listNotesFragment)
                         Toast.makeText(context, "Successfully Sign in!", Toast.LENGTH_SHORT).show()
@@ -80,13 +88,28 @@ class SignInFragment : Fragment() {
                 binding.userPasswordSignIn.error = "Please make sure to fill out Password field!"
             }
             password.length < 4 -> {
-                binding.userPasswordSignIn.error = "Please make sure to have more than 4 characters!"
+                binding.userPasswordSignIn.error =
+                    "Please make sure to have more than 4 characters!"
             }
             else -> {
                 return true
             }
         }
         return false
+    }
+
+    private fun rememberMe() {
+        var logUser: User?
+        binding.rememberMeCheckbox.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                lifecycleScope.launch {
+                    logUser = userViewModel.getUserId(getUserId)
+                    if (logUser != null) {
+                        findNavController().navigate(R.id.action_signInFragment_to_listNotesFragment)
+                    }
+                }
+            }
+        }
     }
 
 

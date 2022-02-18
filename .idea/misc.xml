@@ -3,11 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/DeTitire/AndroidStudioProjects/SecretNotes/app/src/main/res/drawable/border.xml" value="0.145" />
         <entry key="..\:/Users/DeTitire/AndroidStudioProjects/SecretNotes/app/src/main/res/drawable/ic_add.xml" value="0.135" />
         <entry key="..\:/Users/DeTitire/AndroidStudioProjects/SecretNotes/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DeTitire/AndroidStudioProjects/SecretNotes/app/src/main/res/layout/custom_row.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DeTitire/AndroidStudioProjects/SecretNotes/app/src/main/res/layout/fragment_add_note.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DeTitire/AndroidStudioProjects/SecretNotes/app/src/main/res/layout/fragment_list_note.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/DeTitire/AndroidStudioProjects/SecretNotes/app/src/main/res/layout/fragment_list_notes.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/DeTitire/AndroidStudioProjects/SecretNotes/app/src/main/res/layout/fragment_sign_in.xml" value="0.264" />
       </map>
     </option>
   </component>

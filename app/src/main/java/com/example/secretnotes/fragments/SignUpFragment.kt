@@ -22,8 +22,7 @@ class SignUpFragment : Fragment() {
     private lateinit var binding: FragmentSignUpBinding
     private lateinit var userViewModel: UserViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
         binding = FragmentSignUpBinding.inflate(inflater, container, false)
         val viewBinding = binding.root
@@ -74,13 +73,16 @@ class SignUpFragment : Fragment() {
                 binding.userPasswordSignUp.error = "Please make sure to fill out Password field!"
             }
             password.length < 4 -> {
-                binding.userPasswordSignUp.error = "Please make sure to have more than 4 characters!"
+                binding.userPasswordSignUp.error =
+                    "Please make sure to have more than 4 characters!"
             }
             reenterPassword.isEmpty() -> {
-                binding.reenterUserPasswordSignUp.error = "Please make sure to fill out ReenterPassword field!"
+                binding.reenterUserPasswordSignUp.error =
+                    "Please make sure to fill out ReenterPassword field!"
             }
             reenterPassword != password -> {
-                binding.reenterUserPasswordSignUp.error = "Please make sure that passwords are the same!"
+                binding.reenterUserPasswordSignUp.error =
+                    "Please make sure that passwords are the same!"
             }
             else -> {
                 return true
